@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "ctf_game/ctf_game/wsgi.py",
+        "src": "ctf_game/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "ctf_game/ctf_game/wsgi.py"
+            "dest": "ctf_game/wsgi.py"
         }
     ]
 }
