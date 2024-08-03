@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Eight</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the text obtained from stage seven using the <b>ROT13 cipher</b>:</strong>
+    </div>
+
+    <div class="text-left mb-4">
+        <p><strong>About ROT13 Cipher:</strong></p>
+        <p>ROT13 is a special case of the Caesar cipher, which was developed in ancient Rome. The ROT13 cipher shifts each letter by 13 places in the alphabet. This means that 'A' becomes 'N', 'B' becomes 'O', and so on. <b>The cipher is symmetrical, so applying it twice brings you back to the original text.</b></p>
+
+        <p><strong>How to Decode Using ROT13 Cipher:</strong></p>
+        <ul class="list-group list-group-flush mx-auto">
+            <li class="list-group-item">Identify the encoded message from stage seven.</li>
+            <li class="list-group-item">Apply the ROT13 transformation to each letter in the message.</li>
+            <li class="list-group-item">Convert the resulting letters to obtain the decoded message.</li>
+            <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed.</li>
+        </ul>
+
+        <p><strong>Example:</strong></p>
+        <p>Let's decode the message <b>“URYYB”</b> using the ROT13 cipher:</p>
+        <ul>
+            <li><strong>U</strong> (ROT13 → <strong>H</strong>)</li>
+            <li><strong>R</strong> (ROT13 → <strong>E</strong>)</li>
+            <li><strong>Y</strong> (ROT13 → <strong>L</strong>)</li>
+            <li><strong>Y</strong> (ROT13 → <strong>L</strong>)</li>
+            <li><strong>B</strong> (ROT13 → <strong>O</strong>)</li>
+        </ul>
+        <p>The decoded message is: <strong>HELLO</strong></p>
+    </div>
+
+    <div class="text-left mt-4">
+        <p>Now try decoding your message:</p>
+        <form method="post" class="text-center mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="code">Enter Code:</label>
+                <input type="text" class="form-control mx-auto" id="code" name="code" placeholder="Decoded text">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+
+<br><br>
+
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 5px;
+    }
+</style>
+
+{% endblock %}

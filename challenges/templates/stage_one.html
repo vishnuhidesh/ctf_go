@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage One</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the following <b>Morse Code</b> to get the code for the next stage:</strong>
+    </div>
+
+    <div class="text-center mb-4">
+        <pre class="morse-code">
+--. ... -. -. -.-. .- - - -. ..-. .-. -. .- --- -.-. ..-.
+        </pre>
+    </div>
+
+    <div class="alert alert-warning text-center">
+        <strong>Note: Don't put spaces in between the characters while decoding.</strong>
+    </div>
+
+    <h4 class="text-center mt-4">Steps to Decode Morse Code:</h4>
+    <ol class="list-group list-group-flush mb-4">
+        <li class="list-group-item">Translate the Morse code into its alphabetic equivalent using the given International Morse Code chart.</li>
+        <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed to the next stage.</li>
+    </ol>
+
+    <h4 class="text-center">Here's a Morse code chart to help you:</h4>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Letter</th>
+                    <th class="text-center">Morse Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-center">A</td><td class="text-center">.-</td></tr>
+                <tr><td class="text-center">B</td><td class="text-center">-...</td></tr>
+                <tr><td class="text-center">C</td><td class="text-center">-.-.</td></tr>
+                <tr><td class="text-center">D</td><td class="text-center">-..</td></tr>
+                <tr><td class="text-center">E</td><td class="text-center">.</td></tr>
+                <tr><td class="text-center">F</td><td class="text-center">..-.</td></tr>
+                <tr><td class="text-center">G</td><td class="text-center">--.</td></tr>
+                <tr><td class="text-center">H</td><td class="text-center">....</td></tr>
+                <tr><td class="text-center">I</td><td class="text-center">..</td></tr>
+                <tr><td class="text-center">J</td><td class="text-center">.---</td></tr>
+                <tr><td class="text-center">K</td><td class="text-center">-.-</td></tr>
+                <tr><td class="text-center">L</td><td class="text-center">.-..</td></tr>
+                <tr><td class="text-center">M</td><td class="text-center">--</td></tr>
+                <tr><td class="text-center">N</td><td class="text-center">-.</td></tr>
+                <tr><td class="text-center">O</td><td class="text-center">---</td></tr>
+                <tr><td class="text-center">P</td><td class="text-center">.--.</td></tr>
+                <tr><td class="text-center">Q</td><td class="text-center">--.-</td></tr>
+                <tr><td class="text-center">R</td><td class="text-center">.-.</td></tr>
+                <tr><td class="text-center">S</td><td class="text-center">...</td></tr>
+                <tr><td class="text-center">T</td><td class="text-center">-</td></tr>
+                <tr><td class="text-center">U</td><td class="text-center">..-</td></tr>
+                <tr><td class="text-center">V</td><td class="text-center">...-</td></tr>
+                <tr><td class="text-center">W</td><td class="text-center">.--</td></tr>
+                <tr><td class="text-center">X</td><td class="text-center">-..-</td></tr>
+                <tr><td class="text-center">Y</td><td class="text-center">-.--</td></tr>
+                <tr><td class="text-center">Z</td><td class="text-center">--..</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form method="post" class="text-center mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="code">Enter Code:</label>
+            <input type="text" class="form-control mx-auto" id="code" name="code" placeholder="Decoded message">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+
+<br><br>
+
+<style>
+    .morse-code {
+        font-size: 1.5rem;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border: 1px solid #dee2e6;
+        display: inline-block;
+        white-space: pre-wrap;
+    }
+
+    table {
+        background-color: #ffffff;
+        border-radius: 0.25rem;
+    }
+
+    th, td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        border-color: #ffeeba;
+    }
+</style>
+{% endblock %}

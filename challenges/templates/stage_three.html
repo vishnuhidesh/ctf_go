@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Three</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the text obtained from stage two using the <b>Caesar Cipher</b> with a <b>key of 7</b>:</strong>
+    </div>
+
+    <div class="text-center mb-4">
+        <p class="text-justify"><strong>About Caesar Cipher:</strong></p>
+        <p class="text-justify">The Caesar cipher is a type of substitution cipher where each letter in the plaintext is shifted a certain number of places down or up the alphabet. In this challenge, you need to decode the message by shifting each letter backwards by the key value.</p>
+        
+        Read more about Caesar Cipher <a target="_blank" href="https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/">here</a>.
+        <br><br>
+
+        <p class="text-justify"><strong>Steps to Decode Using Caesar Cipher:</strong></p>
+        <ol class="list-group list-group-flush mx-auto text-justify">
+            <li class="list-group-item">Identify the Caesar cipher key provided. In this case, the key is 7.</li>
+            <li class="list-group-item">Shift each letter in the given message backwards by 7 positions in the alphabet. For example, if you encounter the letter 'H', shifting it backwards by 7 positions would give you 'A'.</li>
+            <li class="list-group-item">Apply this backward shift to all letters in the message to reveal the decoded text.</li>
+            <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed to the next stage.</li>
+        </ol>
+
+
+        <p class="text-justify"><strong>Example:</strong></p>
+        <p class="text-justify">Let's decode the message <b>"MJQQT"</b> using the Caesar cipher with a key of 5.</p>
+        <ol class="text-justify">
+            <li>Identify the key, which is 5.</li>
+            <li>Shift each letter in "MJQQT" backwards by 5 positions:</li>
+        </ol>
+        <pre>
+Original:  M  J  Q  Q  T
+Shifted:   H  E  L  L  O
+        </pre>
+        <ol start="3" class="text-justify">
+            <li>The decoded message is: <b>"HELLO"</b></li>
+        </ol>
+    </div>
+
+    <div class="text-center mt-4">
+        <p class="text-justify">Now try this:</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="code">Enter Code:</label>
+                <input type="text" class="form-control  mx-auto" id="code" name="code" placeholder="Decoded text">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+<br><br>
+
+<style>
+    .container {
+        max-width: 600px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    .list-group-item {
+        border: none;
+        text-align: justify;
+    }
+
+    .form-group {
+        margin-top: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    pre {
+        text-align: left;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    .text-justify {
+        text-align: justify;
+    }
+</style>
+{% endblock %}

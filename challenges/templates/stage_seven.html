@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Seven</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the text obtained from stage six using the <b>Affine Cipher</b> with slope <b>A = 5</b> and intercept <b>B = 8</b>:</strong>
+    </div>
+
+    <div class="text-justify mb-4">
+        <p><strong>About Affine Cipher:</strong></p>
+        <p>The Affine cipher is a type of monoalphabetic substitution cipher, where each letter in an alphabet is mapped to its numeric equivalent, encrypted using a linear function, and then converted back to a letter. The encryption function is defined as <b>E(x) = (Ax + B) mod 26</b>, and the decryption function is <b>D(y) = A<sup>-1</sup> (y - B) mod 26</b>, where <b>A<sup>-1</sup></b> is the modular multiplicative inverse of <b>A</b> modulo 26.</p>
+
+        
+        Read more about Affine Cipher <a target="_blank" href="https://www.geeksforgeeks.org/implementation-affine-cipher/">here</a>.
+        <br><br>
+
+        <p><strong>Steps to Decode Using Affine Cipher:</strong></p>
+        <ol class="list-group list-group-flush mx-auto ">
+            <li class="list-group-item">Identify the values for <b>A</b> and <b>B</b>. For this stage, <b>A = 5</b> and <b>B = 8</b>.</li>
+            <li class="list-group-item">Find the modular multiplicative inverse of <b>A</b> modulo 26. For <b>A = 5</b>, this is 21.</li>
+            <li class="list-group-item">Use the decryption function <b>D(y) = A<sup>-1</sup> (y - B) mod 26</b> to decode each letter. Subtract <b>B</b> from the numeric value of each letter in the encoded message, multiply by <b>A<sup>-1</sup></b>, and then apply modulo 26.</li>
+            <li class="list-group-item">Convert the resulting numbers back to letters to get the decoded message.</li>
+            <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed to the next stage.</li>
+        </ol>
+
+
+        <p><strong>Example:</strong></p>
+        <p>Let's decode the message <b>“CVWMQI”</b> using the Affine cipher with <b>A = 5</b> and <b>B = 8</b>.</p>
+
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Find the modular multiplicative inverse of <b>A = 5</b>, which is <b>21</b>.</li>
+            <li>Write down the encoded message and key:</li>
+        </ol>
+        <pre>
+Encoded:  C  V  W  M  Q  I
+Key:      A = 5, B = 8
+A<sup>-1</sup> = 21
+        </pre>
+
+        <p><strong>Decryption Calculations:</strong></p>
+        <ol>
+            <li>
+                <strong>C (encoded = 2):</strong><br>
+                <pre>
+D(2) = 21 × (2 - 8) mod 26
+D(2) = 21 × (-6) mod 26
+D(2) = 21 × 20 mod 26
+D(2) = 420 mod 26 = 4 (E)
+                </pre>
+            </li>
+            <li>
+                <strong>V (encoded = 21):</strong><br>
+                <pre>
+D(21) = 21 × (21 - 8) mod 26
+D(21) = 21 × 13 mod 26
+D(21) = 273 mod 26 = 13 (N)
+                </pre>
+            </li>
+            <li>
+                <strong>W (encoded = 22):</strong><br>
+                <pre>
+D(22) = 21 × (22 - 8) mod 26
+D(22) = 21 × 14 mod 26
+D(22) = 294 mod 26 = 8 (I)
+                </pre>
+            </li>
+            <li>
+                <strong>M (encoded = 12):</strong><br>
+                <pre>
+D(12) = 21 × (12 - 8) mod 26
+D(12) = 21 × 4 mod 26
+D(12) = 84 mod 26 = 6 (G)
+                </pre>
+            </li>
+            <li>
+                <strong>Q (encoded = 16):</strong><br>
+                <pre>
+D(16) = 21 × (16 - 8) mod 26
+D(16) = 21 × 8 mod 26
+D(16) = 168 mod 26 = 12 (M)
+                </pre>
+            </li>
+            <li>
+                <strong>I (encoded = 8):</strong><br>
+                <pre>
+D(8) = 21 × (8 - 8) mod 26
+D(8) = 21 × 0 mod 26
+D(8) = 0 mod 26 = 0 (A)
+                </pre>
+            </li>
+        </ol>
+
+        <p><strong>Result:</strong> The decoded message is: <strong>ENIGMA</strong></p>
+    </div>
+
+    <div class="text-left mt-4">
+        <p>Now try this:</p>
+        <form method="post" class="text-center mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="code">Enter Code:</label>
+                <input type="text" class="form-control mx-auto" id="code" name="code" placeholder="Decoded text">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+<br><br>
+
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    pre {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 4px;
+    }
+</style>
+
+{% endblock %}

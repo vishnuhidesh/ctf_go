@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Four</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the text obtained from stage three using the <b>Rail Fence Cipher</b> with a <b>key of 3:</b></strong>
+    </div>
+
+    <div class="text-justify mb-4">
+        <p><strong>About Rail Fence Cipher:</strong></p>
+        <p>The Rail Fence cipher is a form of transposition cipher that involves writing the message in a zigzag pattern across multiple "rails" or lines. The number of rails determines how the message is encoded. To decode, you need to reconstruct the zigzag pattern and read the message row by row.</p>
+
+        Read more about Rail Fence Cipher <a target="_blank" href="https://www.geeksforgeeks.org/rail-fence-cipher-encryption-decryption/">here</a>.
+        <br><br>
+
+        <p><strong>Steps to Decode Using Rail Fence Cipher:</strong></p>
+        <ol class="list-group list-group-flush mx-auto">
+            <li class="list-group-item">Identify the number of rails used in the cipher. For this stage, the key is 3, so there are 3 rails.</li>
+            <li class="list-group-item">Reconstruct the zigzag pattern with 3 rails by writing the message in a zigzag manner. Start by placing characters in the first rail, then move diagonally downwards to the next rail, and continue until you reach the last rail. After reaching the bottom rail, move diagonally back up to the top rail and repeat the process.</li>
+            <li class="list-group-item">Read the characters row by row to get the decoded message.</li>
+            <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed to the next stage.</li>
+        </ol>
+
+        <p><strong>Example:</strong></p>
+        <p>Let's encode the message <b>“HELLOWORLD”</b> using the Rail Fence cipher with a key of 3.</p>
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Write the message in a zigzag pattern with 3 rails:</li>
+        </ol>
+        <pre>
+H       O       L  
+  E   L   W   R   D
+    L       O     
+        </pre>
+        <ol start="2">
+            <li>Read the message row by row:</li>
+        </ol>
+        <pre>
+HOLELWRDLO
+        </pre>
+
+        <p>The encoded message is: <b>“HOLELWRDLO”</b></p>
+    </div>
+
+    <div class="text-justify mb-4">
+        <p>Now let's try decoding this:</p>
+        <ol>
+            <li>Count the number of characters in the cipher text (here, 10):</li>
+            <li>Draw empty marks with number of rails according to the key (here, 3), and the number of characters (here, 10):</li>
+        </ol>
+        <pre>
+.       .       .
+  .   .   .   .   .
+    .       .
+        </pre>
+        <ol start="3">
+            <li>Fill the characters row-wise from left to right:</li>
+        </ol>
+        <pre>
+H       O       L
+  .   .   .   .   .
+    .       .
+        </pre>
+        <br>
+        <pre>
+H       O       L
+  E   L   W   R   D
+    .       .
+        </pre>
+        <br>
+        <pre>
+H       O       L
+  E   L   W   R   D
+    L       O
+        </pre>
+
+        <ol start="4">
+            <li>Read the characters zigzag wise from left to right:</li>
+        </ol>
+        <pre>
+HELLOWORLD
+        </pre>
+        <p>The decoded message is: <b>“HELLOWORLD”</b></p>
+    </div>
+
+    <div class="text-left mt-4">
+        <p>Now try this:</p>
+        <form method="post" class="text-center mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="code">Enter Code:</label>
+                <input type="text" class="form-control mx-auto" id="code" name="code" placeholder="Decoded text">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+<br><br>
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    .list-group-item {
+        border: none;
+        text-align: justify;
+    }
+
+    pre {
+        text-align: left;
+        margin: 0 auto;
+        width: fit-content;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .form-group {
+        margin-top: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+{% endblock %}

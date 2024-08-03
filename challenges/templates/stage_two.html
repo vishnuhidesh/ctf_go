@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Two</h1>
+
+    <div class="alert alert-info text-center">
+        <strong>Decode the text obtained from stage one by reversing it:</strong>
+    </div>
+
+    <div class="text-center mb-4">
+        <p class="text-justify"><strong>Steps to Decode:</strong></p>
+        <ol class="list-group list-group-flush text-justify">
+            <li class="list-group-item">Take the text obtained from stage one.</li>
+            <li class="list-group-item">Reverse the text. For example, if the text is "EXAMPLE", reversing it would give you "ELPMAXE".</li>
+            <li class="list-group-item">Enter the reversed text in the input field below and submit to proceed to the next stage.</li>
+        </ol>
+    </div>
+
+    <form method="post" class="text-center mt-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="code">Enter Code:</label>
+            <input type="text" class="form-control mx-auto" id="code" name="code" placeholder="Decoded text">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+<br><br>
+
+<style>
+    .container {
+        max-width: 600px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+
+    .list-group-item {
+        border: none;
+        text-align: justify;
+    }
+
+    .form-group {
+        margin-top: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .text-justify {
+        text-align: justify;
+    }
+</style>
+{% endblock %}

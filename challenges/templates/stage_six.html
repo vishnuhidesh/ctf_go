@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Stage Six</h1>
+
+    <div class="alert alert-info text-justify">
+        <strong>Decode the text obtained from stage five using the <b>Vigenère Cipher</b> with the key <b>"CRYPTO"</b>:</strong>
+    </div>
+
+    <div class="text-justify mb-4">
+        <p><strong>About Vigenère Cipher:</strong></p>
+        <p>The Vigenère cipher is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on the letters of a keyword. Each letter in the plaintext is shifted along some number of places in the alphabet, determined by the corresponding letter in the keyword.</p>
+        <p>Read more about Vigenère cipher <a target="_blank" href="https://www.geeksforgeeks.org/vigenere-cipher/">here</a>.</p>
+
+        <p><strong>Steps to Decode Using Vigenère Cipher:</strong></p>
+        <ol class="list-group list-group-flush mx-auto">
+            <li class="list-group-item">Identify the Vigenère cipher key. For this stage, the key is <b>"CRYPTO"</b>.</li>
+            <li class="list-group-item">Write the key repeatedly below the encoded message until it matches the length of the message.</li>
+            <li class="list-group-item">For each letter in the encoded message, reverse the shift applied by the corresponding letter in the key. Subtract the key letter's position in the alphabet from the encoded letter's position.</li>
+            <li class="list-group-item">Convert the result back to a letter. If it goes before 'A', wrap around to the end of the alphabet.</li>
+            <li class="list-group-item">Enter the decoded message in the input field below and submit to proceed to the next stage.</li>
+        </ol>
+
+        <p><strong>Example:</strong></p>
+        <p>Let's decode the message <b>“JFKTEOPUCG”</b> using the Vigenère cipher with the key <b>"CRYPTO"</b>.</p>
+
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Write the key below the message:</li>
+        </ol>
+        <pre>
+Encoded:  J  F  K  T  E  O  P  U  C  G
+Key:      C  R  Y  P  T  O  C  R  Y  P
+        </pre>
+
+        <ol start="2">
+            <li>Use the Vigenère table to reverse the shift for each letter:</li>
+            <li>Find the intersection of the row corresponding to the key letter and the column corresponding to the encoded letter.</li>
+            <li>Read off the decoded letter from this intersection.</li>
+        </ol>
+
+        <p><strong>Vigenère Table:</strong></p>
+        <p>The Vigenère table is a 26x26 table used for encrypting and decrypting messages.</p>
+        <pre>
+   <u>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</u>
+A| A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+B| B C D E F G H I J K L M N O P Q R S T U V W X Y Z A
+C| C D E F G H I J K L M N O P Q R S T U V W X Y Z A B
+D| D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+E| E F G H I J K L M N O P Q R S T U V W X Y Z A B C D
+F| F G H I J K L M N O P Q R S T U V W X Y Z A B C D E
+G| G H I J K L M N O P Q R S T U V W X Y Z A B C D E F
+H| H I J K L M N O P Q R S T U V W X Y Z A B C D E F G
+I| I J K L M N O P Q R S T U V W X Y Z A B C D E F G H
+J| J K L M N O P Q R S T U V W X Y Z A B C D E F G H I
+K| K L M N O P Q R S T U V W X Y Z A B C D E F G H I J
+L| L M N O P Q R S T U V W X Y Z A B C D E F G H I J K
+M| M N O P Q R S T U V W X Y Z A B C D E F G H I J K L
+N| N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+O| O P Q R S T U V W X Y Z A B C D E F G H I J K L M N
+P| P Q R S T U V W X Y Z A B C D E F G H I J K L M N O
+Q| Q R S T U V W X Y Z A B C D E F G H I J K L M N O P
+R| R S T U V W X Y Z A B C D E F G H I J K L M N O P Q
+S| S T U V W X Y Z A B C D E F G H I J K L M N O P Q R
+T| T U V W X Y Z A B C D E F G H I J K L M N O P Q R S
+U| U V W X Y Z A B C D E F G H I J K L M N O P Q R S T
+V| V W X Y Z A B C D E F G H I J K L M N O P Q R S T U
+W| W X Y Z A B C D E F G H I J K L M N O P Q R S T U V
+X| X Y Z A B C D E F G H I J K L M N O P Q R S T U V W
+Y| Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
+Z| Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+        </pre>
+        Or find a better looking table <a target="_blank" href="https://www.researchgate.net/profile/Amin-Subandi/publication/318260132/figure/fig3/AS:513402955104258@1499416211147/Vigenere-Cipher-table.png">here</a>.
+        <br><br>
+
+        <p><strong>Decoding Process:</strong></p>
+    
+            Find the intersection in the Vigenère table:
+            <ul>
+                <li>For J (encoded) with C (key), find the intersection, which is H.</li>
+                <li>For F (encoded) with R (key), find the intersection, which is O.</li>
+                <li>For K (encoded) with Y (key), find the intersection, which is M.</li>
+                <li>For T (encoded) with P (key), find the intersection, which is E.</li>
+                <li>For E (encoded) with T (key), find the intersection, which is L.</li>
+                <li>For O (encoded) with O (key), find the intersection, which is A.</li>
+                <li>For P (encoded) with C (key), find the intersection, which is N.</li>
+                <li>For U (encoded) with R (key), find the intersection, which is D.</li>
+                <li>For C (encoded) with Y (key), find the intersection, which is E.</li>
+                <li>For G (encoded) with P (key), find the intersection, which is R.</li>
+                <li>Continue for each letter to get the decoded message: <b>“HOMELANDER”</b>.</li>
+            </ul>
+    
+    </div>
+
+    <div class="text-justify mt-4">
+        <p>Now try this:</p>
+        <form method="post" class="text-center mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="code">Enter Code:</label>
+                <input type="text" class="form-control  mx-auto" id="code" name="code" placeholder="Decoded text">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+<br><br>
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border-color: #bee5eb;
+    }
+</style>
+
+{% endblock %}
