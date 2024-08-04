@@ -47,6 +47,31 @@
     .start-link a:hover {
         background-color: #45a049;
     }
+    .alphabet-mapping {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 800px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .alphabet-mapping table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    .alphabet-mapping th, .alphabet-mapping td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    .alphabet-mapping th {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+    .alphabet-mapping td {
+        background-color: #f9f9f9;
+    }
 </style>
 
 <h1>Welcome to the CTF Game!</h1>
@@ -63,7 +88,7 @@
 
 <h2>Tips</h2>
 <ul>
-    <li>Keep a Pen and Paper, and a calculator (or your smartphone's calculator) if needed, handy.</li>
+    <li>Keep a pen and paper, and a calculator (or your smartphone's calculator) if needed, handy.</li>
     <li><b>Don't forget to write somewhere, the decoded text you get in each round.</b></li>
     <li>Read the instructions carefully for each stage; they will guide you on how to decode the message.</li>
     <li>Practice decoding messages manually to enhance your cryptography skills.</li>
@@ -71,6 +96,51 @@
     <li>Take notes as you progress through each stage to help you identify patterns and techniques.</li>
     <li>Stay patient and persistent; some stages may be more challenging than others.</li>
 </ul>
+
+<h2>Alphabet Mapping</h2>
+<div class="alphabet-mapping">
+    <p>For your reference, here's the mapping of the alphabets from 0 to 25. <b>Note this down</b> as it will be useful for decoding messages:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Letter</th>
+                <th>Index</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>A</td><td>0</td></tr>
+            <tr><td>B</td><td>1</td></tr>
+            <tr><td>C</td><td>2</td></tr>
+            <tr><td>D</td><td>3</td></tr>
+            <tr><td>E</td><td>4</td></tr>
+            <tr><td>F</td><td>5</td></tr>
+            <tr><td>G</td><td>6</td></tr>
+            <tr><td>H</td><td>7</td></tr>
+            <tr><td>I</td><td>8</td></tr>
+            <tr><td>J</td><td>9</td></tr>
+            <tr><td>K</td><td>10</td></tr>
+            <tr><td>L</td><td>11</td></tr>
+            <tr><td>M</td><td>12</td></tr>
+            <tr><td>N</td><td>13</td></tr>
+            <tr><td>O</td><td>14</td></tr>
+            <tr><td>P</td><td>15</td></tr>
+            <tr><td>Q</td><td>16</td></tr>
+            <tr><td>R</td><td>17</td></tr>
+            <tr><td>S</td><td>18</td></tr>
+            <tr><td>T</td><td>19</td></tr>
+            <tr><td>U</td><td>20</td></tr>
+            <tr><td>V</td><td>21</td></tr>
+            <tr><td>W</td><td>22</td></tr>
+            <tr><td>X</td><td>23</td></tr>
+            <tr><td>Y</td><td>24</td></tr>
+            <tr><td>Z</td><td>25</td></tr>
+        </tbody>
+    </table>
+<br>
+    <div class="alert alert-warning text-center">
+        <strong>Remember, the alphabet is mapped starting from 0 to 25, not 1 to 26!</strong>
+    </div>
+</div>
 
 <div class="start-link">
     <a href="{% url 'stage_one' %}">Start your challenge</a>
