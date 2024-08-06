@@ -96,6 +96,58 @@
     <li>Take notes as you progress through each stage to help you identify patterns and techniques.</li>
     <li>Stay patient and persistent; some stages may be more challenging than others.</li>
 </ul>
+<h2>Understanding Modulus Operation</h2>
+            <p>The modulus operation finds the remainder when one integer is divided by another. The syntax is typically <code>a % b</code> (read as 'a mod b'), where <code>a</code> is the dividend and <code>b</code> is the divisor.</p>
+
+            <br>
+            
+            <b>Quotient × Divisor + Remainder = Dividend</b>
+
+            <img src="https://www.shutterstock.com/image-vector/long-division-steps-parts-properties-600nw-2276518059.jpg" alt="Long Division Steps" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+            
+            <br><br>
+
+            <p><strong>Example with Positive Number:</strong></p>
+            <pre>
+    29 % 7
+    
+    1. Divide 29 by 7, quotient = 4 (consider only integer part)
+    2. Multiply 4 by 7, result = 28
+    3. Subtract 28 from 29, remainder = 1
+    
+    Result: 29 % 7 = 1
+</pre>
+    
+            <p><strong>Example with Negative Number:</strong></p>
+            <pre>
+    -6 % 26
+    
+    1. Divide -6 by 26, quotient = -1 (consider only integer part)
+    2. Multiply -1 by 26, result = -26
+    3. Subtract -26 from -6, remainder = 20
+    
+    Result: -6 % 26 = 20
+            </pre>
+        
+            <p><strong>Simple trick to perform modulus operation on a negative number:</strong></p>
+            <pre>
+    -32 % 7
+    
+    Add the divisor (here, 7) to the dividend (here, -32) repeatedly
+    until you get a positive number.
+    
+    -32 + 7 = -25
+    -25 + 7 = -18
+    -18 + 7 = -11
+    -11 + 7 = -4
+    -4 + 7 = 3
+
+    When you stop getting negative numbers and obtain the first
+    positive number, that positive number is the remainder, ie, 
+    the result of the modulus operation.
+
+            </pre>
+        
 
 <h2>Alphabet Mapping</h2>
 <div class="alphabet-mapping">
