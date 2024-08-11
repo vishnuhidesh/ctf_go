@@ -23,9 +23,8 @@
     }
     h2 {
         color: #4CAF50;
-        {% comment %} font-size: 3em; {% endcomment %}
         margin-bottom: 20px;
-        font-weight:bold;
+        font-weight: bold;
     }
     p {
         font-size: 1.2em;
@@ -48,12 +47,19 @@
     .btn-home:hover {
         background-color: #45a049;
     }
+    .prize-location {
+        font-size: 1.2em;
+        color: #d9534f;
+        font-weight: bold;
+        margin-top: 20px;
+    }
 </style>
 
 <div class="congrats-container">
     <h2>Congratulations!</h2>
     <p>You have successfully completed the CTF game. Your skills and perseverance have paid off. Well done!</p>
     <div class="celebrate">🎉🎉🎉</div>
+    <p class="prize-location">Your prize is hidden in a textbook about cryptography in the staffroom on the ground floor. Good luck finding it!</p>
     <br>
     <a href="{% url 'index' %}" class="btn-home">Go to Home</a>
 </div>
